@@ -16,7 +16,7 @@ form.addEventListener('submit', function (event) {
   // TODO 4: Prevent the form reload
   // Stop the browser's default page refresh by adding: event.preventDefault();
 
-
+  event.preventDefault();
   const patientCode = codeInput.value.trim();
   const serviceName = serviceSelect.value;
   if (!patientCode) return;
@@ -33,7 +33,7 @@ form.addEventListener('submit', function (event) {
   // Safely set codeText's text using .textContent (never .innerHTML!):
   // codeText.textContent = ???;
 
-
+  codeText.textContent = patientCode;
   const serviceText = document.createElement('p');
   serviceText.classList.add('service');
   serviceText.textContent = serviceName;
@@ -47,6 +47,9 @@ form.addEventListener('submit', function (event) {
   // Add a click listener to servedBtn that calls card.remove();
   // servedBtn.addEventListener('click', function () { ... });
 
+  servedBtn.addEventListener('click', function () {
+    card.remove();
+});
 
   // Assemble and append the card to #queue-list
   infoDiv.appendChild(codeText);
